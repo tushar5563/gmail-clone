@@ -9,7 +9,7 @@ import userRoutes from "./routes/userRoutes.js";
 dotenv.config({});
 
 connectDB();
-const PORT = 8080;
+const port = process.env.PORT ||8080;
 
 const app = express();
 
@@ -28,7 +28,7 @@ app.use(cors(corsOptions));
 app.use('/api/v1/user', userRoute);
 app.use("/api/v1/email", emailRoute);
 app.use("/api/user", userRoutes);
-app.listen(PORT, () => {
-  console.log(`Server running at port ${PORT}`);
+app.listen(port, () => {
+  console.log(`Server running at port ${port}`);
 });
 
